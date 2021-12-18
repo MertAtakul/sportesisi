@@ -67,8 +67,6 @@
 
         <?php } ?>
 
-
-
         <form action="" method="POST">
             <img class="mb-4" src="images/login_icon.png" alt="" width="72" height="57">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
