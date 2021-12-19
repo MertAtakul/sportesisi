@@ -155,9 +155,15 @@
                     <div class="mb-3">
                     <select class="form-select" name="branch_id">
                         <option selected>Branş Seçiniz...</option>
-                        <option value="1">FITNESS</option>
-                        <option value="2">Tenis/SQUASH</option>
-                        <option value="3">HAVUZ</option>
+                        <?php
+                                        $result = mysqli_query($db,"SELECT * FROM branch");
+                                        $i=1;
+                                        while($row = mysqli_fetch_array($result)) { ?>
+                                        
+                        <option value="<?php echo $row["id"]; ?>"><?php echo $row["branch_name"]; ?></option>
+                        
+                        <?php $i++; } ?>
+
                         
                     </select>
 
@@ -165,9 +171,13 @@
                     <div class="mb-3">
                     <select class="form-select" name="trainer_id">
                         <option selected>Antrenör Seçiniz...</option>
-                        <option value="1">Mert Atakul</option>
-                        <option value="2">Talha Kaan Özkan</option>
-                        <option value="3">Sefa Dudu</option>
+                        <?php
+                                        $result = mysqli_query($db,"SELECT * FROM trainer");
+                                        $i=1;
+                                        while($row = mysqli_fetch_array($result)) { ?>
+                        <option value="<?php echo $row["id"]; ?>"><?php echo $row["trainer_name"] ; ?> <?php echo $row["trainer_surname"] ; ?></option>
+                        <?php $i++; } ?>
+
                         
                     </select>
                     </div>
@@ -202,9 +212,15 @@
                         <div class="mb-3">
                     <select class="form-select" name="branch_id">
                         <option selected>Branş Seçiniz...</option>
-                        <option value="1">FITNESS</option>
-                        <option value="2">Tenis/SQUASH</option>
-                        <option value="3">HAVUZ</option>
+                        
+                        <?php
+                                        $result = mysqli_query($db,"SELECT * FROM branch");
+                                        $i=1;
+                                        while($row = mysqli_fetch_array($result)) { ?>
+                                        
+                        <option value="<?php echo $row["id"]; ?>"><?php echo $row["branch_name"]; ?></option>
+                        
+                        <?php $i++; } ?>
                         
                     </select>
 
@@ -212,9 +228,14 @@
                     <div class="mb-3">
                     <select class="form-select" name="trainer_id">
                         <option selected>Antrenör Seçiniz...</option>
-                        <option value="1">Mert Atakul</option>
-                        <option value="2">Talha Kaan Özkan</option>
-                        <option value="3">Sefa Dudu</option>
+                         
+                        <?php
+                                        $result = mysqli_query($db,"SELECT * FROM trainer");
+                                        $i=1;
+                                        while($row = mysqli_fetch_array($result)) { ?>
+                        <option value="<?php echo $row["id"]; ?>"><?php echo $row["trainer_name"] ; ?> <?php echo $row["trainer_surname"] ; ?></option>
+                        <?php $i++; } ?>
+
                         
                     </select>
                     </div>
