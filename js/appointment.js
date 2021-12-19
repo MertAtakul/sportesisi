@@ -17,10 +17,35 @@ $(document).on("click", ".delete", function() {
 /* ajax post methodları */
 $(document).on("click", "#add", function() {
     var data = $("#add-form").serialize();
+
+
+    $.ajax({
+        url: "backend/dbappointment.php",
+        type: "POST",
+        cache: false,
+        data: data,
+        success: function(dataResult) {
+            $('#record-add').modal('hide');
+            location.reload();
+
+        }
+    });
 });
 
 $(document).on("click", "#edit", function() {
     var data = $("#update-form").serialize();
+
+    $.ajax({
+        url: "backend/dbappointment.php",
+        type: "POST",
+        cache: false,
+        data: data,
+        success: function(dataResult) {
+            $('#record-edit').modal('hide');
+            location.reload();
+
+        }
+    });
 });
 
 $(document).on("click", "#delete", function() {

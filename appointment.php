@@ -152,6 +152,32 @@
                 <div class="modal-body">
                     <form id="add-form">
                         <input type="hidden" value="1" name="type">
+                    <div class="mb-3">
+                    <select class="form-select" name="branch_id">
+                        <option selected>Branş Seçiniz...</option>
+                        <option value="1">FITNESS</option>
+                        <option value="2">Tenis/SQUASH</option>
+                        <option value="3">HAVUZ</option>
+                        
+                    </select>
+
+                    </div>
+                    <div class="mb-3">
+                    <select class="form-select" name="trainer_id">
+                        <option selected>Antrenör Seçiniz...</option>
+                        <option value="1">Mert Atakul</option>
+                        <option value="2">Talha Kaan Özkan</option>
+                        <option value="3">Sefa Dudu</option>
+                        
+                    </select>
+                    </div>
+
+
+                <div class="mb-3">
+                                <label class="form-label">Tarih</label>
+                                <input type="datetime-local" class="form-control" placeholder="" name="date">
+                </div>
+ 
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -173,6 +199,31 @@
                     <form id="update-form">
                         <input type="hidden" value="2" name="type">
                         <input type="hidden" id="id_u" name="id" class="form-control" required>
+                        <div class="mb-3">
+                    <select class="form-select" name="branch_id">
+                        <option selected>Branş Seçiniz...</option>
+                        <option value="1">FITNESS</option>
+                        <option value="2">Tenis/SQUASH</option>
+                        <option value="3">HAVUZ</option>
+                        
+                    </select>
+
+                    </div>
+                    <div class="mb-3">
+                    <select class="form-select" name="trainer_id">
+                        <option selected>Antrenör Seçiniz...</option>
+                        <option value="1">Mert Atakul</option>
+                        <option value="2">Talha Kaan Özkan</option>
+                        <option value="3">Sefa Dudu</option>
+                        
+                    </select>
+                    </div>
+
+
+                <div class="mb-3">
+                                <label class="form-label">Tarih</label>
+                                <input type="datetime-local" class="form-control" placeholder="" name="date">
+                </div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -201,6 +252,9 @@
             </div>
         </div>
     </div>
+
+
+
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
