@@ -25,4 +25,16 @@ $(document).on("click", "#edit", function() {
 
 $(document).on("click", "#delete", function() {
     var data = { type: 3, id: processId };
+
+    $.ajax({
+        url: "backend/dbappointment.php",
+        type: "POST",
+        cache: false,
+        data: data,
+        success: function(dataResult) {
+            $('#confirm-delete').modal('hide');
+            $("#" + dataResult).remove();
+
+        }
+    });
 });
