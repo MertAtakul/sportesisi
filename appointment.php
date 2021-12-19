@@ -84,8 +84,8 @@
                         <h2 class="mt-3 d-inline-block">Randevularım</h2>
                     </div>
                     <div class="col-6 mt-auto p-2 d-flex justify-content-end">
-                        <button type="button" class="btn btn-primary btn-sm add"
-                            data-bs-toggle="modal" data-bs-target="#record-add">Randevu Oluştur</button>
+                        <button type="button" class="btn btn-primary btn-sm add" data-bs-toggle="modal"
+                            data-bs-target="#record-add">Randevu Oluştur</button>
                     </div>
                 </div>
 
@@ -105,7 +105,7 @@
                                 <tbody>
 
                                     <?php
-                                        $result = mysqli_query($db,"SELECT a.id, b.branch_name, t.trainer_name, t.trainer_surname, a.date FROM appointment a LEFT JOIN trainer t	ON a.trainer_id = t.id LEFT JOIN branch b ON a.branch_id = b.id;");
+                                        $result = mysqli_query($db,"SELECT a.id, a.branch_id, a.trainer_id, b.branch_name, t.trainer_name, t.trainer_surname, a.date FROM appointment a LEFT JOIN trainer t	ON a.trainer_id = t.id LEFT JOIN branch b ON a.branch_id = b.id;");
                                         $i=1;
                                         while($row = mysqli_fetch_array($result)) { ?>
 
@@ -113,14 +113,14 @@
                                         <td>
                                             <?php echo $row["id"]; ?>
                                         </td>
-                                        <td>
+                                        <td data-branch-id="<?php echo $row["branch_id"]; ?>">
                                             <?php echo $row["branch_name"]; ?>
                                         </td>
-                                        <td>
+                                        <td data-trainer-id="<?php echo $row["trainer_id"]; ?>">
                                             <?php echo $row["trainer_name"]; ?>
                                             <?php echo $row["trainer_surname"]; ?>
                                         </td>
-                                        <td>
+                                        <td data-date="<?php echo $row["date"]; ?>">
                                             <?php echo $row["date"]; ?>
                                         </td>
                                         <td>
@@ -152,42 +152,48 @@
                 <div class="modal-body">
                     <form id="add-form">
                         <input type="hidden" value="1" name="type">
-                    <div class="mb-3">
-                    <select class="form-select" name="branch_id">
-                        <option selected>Branş Seçiniz...</option>
-                        <?php
+                        <div class="mb-3">
+                            <select class="form-select" name="branch_id">
+                                <option selected>Branş Seçiniz...</option>
+
+                                <?php
                                         $result = mysqli_query($db,"SELECT * FROM branch");
                                         $i=1;
                                         while($row = mysqli_fetch_array($result)) { ?>
-                                        
-                        <option value="<?php echo $row["id"]; ?>"><?php echo $row["branch_name"]; ?></option>
-                        
-                        <?php $i++; } ?>
 
-                        
-                    </select>
+                                <option value="<?php echo $row["id"]; ?>">
+                                    <?php echo $row["branch_name"]; ?>
+                                </option>
 
-                    </div>
-                    <div class="mb-3">
-                    <select class="form-select" name="trainer_id">
-                        <option selected>Antrenör Seçiniz...</option>
-                        <?php
+                                <?php $i++; } ?>
+
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select" name="trainer_id">
+                                <option value="0" selected>Antrenör Seçiniz...</option>
+
+                                <?php
                                         $result = mysqli_query($db,"SELECT * FROM trainer");
                                         $i=1;
                                         while($row = mysqli_fetch_array($result)) { ?>
-                        <option value="<?php echo $row["id"]; ?>"><?php echo $row["trainer_name"] ; ?> <?php echo $row["trainer_surname"] ; ?></option>
-                        <?php $i++; } ?>
 
-                        
-                    </select>
-                    </div>
+                                <option value="<?php echo $row["id"]; ?>" data-branch-id="<?php echo $row["branch_id"]; ?>">
+                                    <?php echo $row["trainer_name"] ; ?>
+                                    <?php echo $row["trainer_surname"] ; ?>
+                                </option>
+
+                                <?php $i++; } ?>
+
+                            </select>
+                        </div>
 
 
-                <div class="mb-3">
-                                <label class="form-label">Tarih</label>
-                                <input type="datetime-local" class="form-control" placeholder="" name="date">
-                </div>
- 
+                        <div class="mb-3">
+                            <label class="form-label">Tarih</label>
+                            <input type="datetime-local" class="form-control" placeholder="" name="date">
+                        </div>
+
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -210,41 +216,46 @@
                         <input type="hidden" value="2" name="type">
                         <input type="hidden" id="id_u" name="id" class="form-control" required>
                         <div class="mb-3">
-                    <select class="form-select" name="branch_id">
-                        <option selected>Branş Seçiniz...</option>
-                        
-                        <?php
+                            <select class="form-select" name="branch_id">
+                                <option selected>Branş Seçiniz...</option>
+
+                                <?php
                                         $result = mysqli_query($db,"SELECT * FROM branch");
                                         $i=1;
                                         while($row = mysqli_fetch_array($result)) { ?>
-                                        
-                        <option value="<?php echo $row["id"]; ?>"><?php echo $row["branch_name"]; ?></option>
-                        
-                        <?php $i++; } ?>
-                        
-                    </select>
 
-                    </div>
-                    <div class="mb-3">
-                    <select class="form-select" name="trainer_id">
-                        <option selected>Antrenör Seçiniz...</option>
-                         
-                        <?php
+                                <option value="<?php echo $row["id"]; ?>">
+                                    <?php echo $row["branch_name"]; ?>
+                                </option>
+
+                                <?php $i++; } ?>
+
+                            </select>
+
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select" name="trainer_id">
+                                <option value="0" selected>Antrenör Seçiniz...</option>
+
+                                <?php
                                         $result = mysqli_query($db,"SELECT * FROM trainer");
                                         $i=1;
                                         while($row = mysqli_fetch_array($result)) { ?>
-                        <option value="<?php echo $row["id"]; ?>"><?php echo $row["trainer_name"] ; ?> <?php echo $row["trainer_surname"] ; ?></option>
-                        <?php $i++; } ?>
 
-                        
-                    </select>
-                    </div>
+                                <option value="<?php echo $row["id"]; ?>" data-branch-id="<?php echo $row["branch_id"]; ?>">
+                                    <?php echo $row["trainer_name"] ; ?>
+                                    <?php echo $row["trainer_surname"] ; ?>
+                                </option>
 
+                                <?php $i++; } ?>
 
-                <div class="mb-3">
-                                <label class="form-label">Tarih</label>
-                                <input type="datetime-local" class="form-control" placeholder="" name="date">
-                </div>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Tarih</label>
+                            <input type="datetime-local" class="form-control" placeholder="" name="date">
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -274,17 +285,13 @@
         </div>
     </div>
 
-
-
-
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
-        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <script src="js/appointment.js"></script>
 </body>
