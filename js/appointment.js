@@ -13,9 +13,10 @@ $(document).on("click", ".edit", function() {
     var trainerId = $(this).closest("tr").find("[data-trainer-id]").data("trainer-id");
     var date = $(this).closest("tr").find("[data-date]").data("date");
 
+
+    // Seçilen verilerin formda gösterilmesi (satır 32ye kadar)
     $("#record-edit [name='branch_id']").val(branchId);
     $("#record-edit [name='trainer_id']").val(trainerId);
-
     var m = new Date(date);
     var dateString =
         m.getUTCFullYear() + "-" +
@@ -86,6 +87,7 @@ $(document).on("click", "#delete", function() {
 
 /* branç select'inin değişme durumu */
 
+
 $(document).on("change", "#record-add [name='branch_id']", function() {
     var selectedBranch = $("#record-add [name='branch_id'] option:selected").val();
     trainerSelect(selectedBranch, 1)
@@ -96,6 +98,8 @@ $(document).on("change", "#record-edit [name='branch_id']", function() {
     trainerSelect(selectedBranch, 2)
 });
 
+
+/*trainerları gösteriyor*/
 function trainerSelect(branchid, type) {
 
     var elem;

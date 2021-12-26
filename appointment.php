@@ -2,6 +2,13 @@
    include('session.php');
 ?>
 
+<?php
+$mindate = date("Y-m-d");
+$mintime = date("h:i");
+$min = $mindate."T".$mintime;
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -105,8 +112,7 @@
                                 <tbody>
 
                                     <?php
-                                        $result = mysqli_query($db,"SELECT a.id, a.branch_id, a.trainer_id, b.branch_name, t.trainer_name, t.trainer_surname, a.date FROM appointment a LEFT JOIN trainer t	ON a.trainer_id = t.id LEFT JOIN branch b ON a.branch_id = b.id;");
-                                        $i=1;
+                                        $result = mysqli_query($db,"SELECT a.id, a.branch_id, a.trainer_id, b.branch_name, t.trainer_name, t.trainer_surname, a.date FROM appointment a LEFT JOIN trainer t	ON a.trainer_id = t.id LEFT JOIN branch b ON a.branch_id = b.id WHERE user_id=$login_id;");
                                         while($row = mysqli_fetch_array($result)) { ?>
 
                                     <tr id="<?php echo $row["id"]; ?>">
@@ -131,7 +137,7 @@
                                         </td>
                                     </tr>
 
-                                    <?php $i++; } ?>
+                                    <?php  } ?>
 
                                 </tbody>
                             </table>
@@ -158,14 +164,13 @@
 
                                 <?php
                                         $result = mysqli_query($db,"SELECT * FROM branch");
-                                        $i=1;
                                         while($row = mysqli_fetch_array($result)) { ?>
 
                                 <option value="<?php echo $row["id"]; ?>">
                                     <?php echo $row["branch_name"]; ?>
                                 </option>
 
-                                <?php $i++; } ?>
+                                <?php  } ?>
 
                             </select>
                         </div>
@@ -175,7 +180,6 @@
 
                                 <?php
                                         $result = mysqli_query($db,"SELECT * FROM trainer");
-                                        $i=1;
                                         while($row = mysqli_fetch_array($result)) { ?>
 
                                 <option value="<?php echo $row["id"]; ?>" data-branch-id="<?php echo $row["branch_id"]; ?>">
@@ -183,7 +187,7 @@
                                     <?php echo $row["trainer_surname"] ; ?>
                                 </option>
 
-                                <?php $i++; } ?>
+                                <?php  } ?>
 
                             </select>
                         </div>
@@ -191,7 +195,8 @@
 
                         <div class="mb-3">
                             <label class="form-label">Tarih</label>
-                            <input type="datetime-local" class="form-control" placeholder="" name="date">
+                  
+                            <input type="datetime-local" min="<?php echo $min?>"  class="form-control" placeholder="" name="date">
                         </div>
 
                     </form>
@@ -221,14 +226,13 @@
 
                                 <?php
                                         $result = mysqli_query($db,"SELECT * FROM branch");
-                                        $i=1;
                                         while($row = mysqli_fetch_array($result)) { ?>
 
                                 <option value="<?php echo $row["id"]; ?>">
                                     <?php echo $row["branch_name"]; ?>
                                 </option>
 
-                                <?php $i++; } ?>
+                                <?php  } ?>
 
                             </select>
 
@@ -239,7 +243,6 @@
 
                                 <?php
                                         $result = mysqli_query($db,"SELECT * FROM trainer");
-                                        $i=1;
                                         while($row = mysqli_fetch_array($result)) { ?>
 
                                 <option value="<?php echo $row["id"]; ?>" data-branch-id="<?php echo $row["branch_id"]; ?>">
@@ -247,14 +250,14 @@
                                     <?php echo $row["trainer_surname"] ; ?>
                                 </option>
 
-                                <?php $i++; } ?>
+                                <?php  } ?>
 
                             </select>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label">Tarih</label>
-                            <input type="datetime-local" class="form-control" placeholder="" name="date">
+                            <input type="datetime-local" min="<?php echo $min?>" class="form-control" placeholder="" name="date">
                         </div>
                     </form>
                 </div>

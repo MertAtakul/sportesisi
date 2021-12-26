@@ -78,7 +78,7 @@
 
           header("location: dashboard.php");
               } else{
-                  echo "Oops! Something went wrong. Please try again later.";
+                  echo "Oops! Bir şeyler ";
               }
 
               // Close statement
@@ -110,6 +110,7 @@
 <body class="text-center">
     <main class="form-signin">
 
+        <div class="mt-4"><img src="images/logo.png" alt="Just Sports Logo"></div>
         <h4 class="mt-4 mb-3 text-white">Just Sports'a Üye Ol</h4>
 
         <?php if(!empty($username_err) || !empty($password_err)){ ?>

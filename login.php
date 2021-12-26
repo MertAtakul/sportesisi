@@ -43,7 +43,8 @@
 <body class="text-center">
     <main class="form-signin">
 
-        <h4 class="mt-4 mb-3 text-white">Just Sports'a Giriş Yap</h4>
+        <div class="mt-4"><img src="images/logo.png" alt="Just Sports Logo"></div>
+        <h4 class="mt-4 mb-5 text-white">Just Sports'a Giriş Yap</h4>
 
         <?php if (!empty($error)) {?>
 
@@ -71,7 +72,7 @@
               </label>
             </div> -->
 
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Giriş yap</button>
+            <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Giriş yap</button>
 
         </form>
         <hr class="mt-4">
