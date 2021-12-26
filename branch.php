@@ -78,10 +78,9 @@
 
                         <?php 
                         
-                        if($branchid == ""){ $result = mysqli_query($db,"SELECT * FROM trainer"); }
-                        else{ $result = mysqli_query($db,"SELECT b.branch_name, t.trainer_name, t.trainer_surname, t.image FROM trainer t LEFT JOIN branch b ON t.branch_id = b.id AND t.branch_id = $branchid WHERE branch_name IS NOT NULL;"); }
+                        if($branchid == ""){ $result = mysqli_query($db,"SELECT  t.trainer_name, t.trainer_surname, t.image, b.branch_name	FROM trainer t LEFT JOIN branch b ON t.branch_id = b.id;"); }
+                        else{ $result = mysqli_query($db,"SELECT  t.trainer_name, t.trainer_surname, t.image, b.branch_name	FROM trainer t LEFT JOIN branch b ON t.branch_id = b.id WHERE branch_id = $branchid;"); }
 
-                        $i=1;
                         while($row = mysqli_fetch_array($result)) { ?>
 
                         <div class="col-md-3 col-sm-12 pt-3 text-white text-center">
@@ -98,7 +97,7 @@
                             </div>
                         </div>
 
-                        <?php $i++; } ?>
+                        <?php } ?>
 
                     </div>
                 </div>
