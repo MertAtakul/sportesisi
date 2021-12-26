@@ -110,7 +110,7 @@
 <body class="text-center">
     <main class="form-signin">
 
-        <div class="mt-4"><img src="images/logo.png" alt="Just Sports Logo"></div>
+        <div class="mt-4"><a href="index.html"><img src="images/logo.png" alt="Just Sports Logo"></a></div>
         <h4 class="mt-4 mb-3 text-white">Just Sports'a Üye Ol</h4>
 
         <?php if(!empty($username_err) || !empty($password_err)){ ?>

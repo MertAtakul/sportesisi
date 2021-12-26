@@ -38,12 +38,24 @@
     <link rel="stylesheet" href="css/style.css">
 
     <title>Giriş Yap · Spor Tesisi</title>
+    <style>body::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: -1;
+    background-color: #0000008f;
+    width: 100%;
+    height: 100%;
+}</style>
 </head>
 
-<body class="text-center">
+
+
+<body class="text-center" style="background-image: url(images/background_img.jpg) ">
     <main class="form-signin">
 
-        <div class="mt-4"><img src="images/logo.png" alt="Just Sports Logo"></div>
+        <div class="mt-4"><a href="index.html"><img src="images/logo.png" alt="Just Sports Logo"></a></div>
         <h4 class="mt-4 mb-5 text-white">Just Sports'a Giriş Yap</h4>
 
         <?php if (!empty($error)) {?>
@@ -66,11 +78,6 @@
                 <input type="password" class="form-control" id="password" name="password">
             </div>
 
-            <!-- <div class="checkbox mb-3">
-              <label>
-                <input type="checkbox" value="remember-me"> Remember me
-              </label>
-            </div> -->
 
             <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Giriş yap</button>
 

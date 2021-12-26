@@ -30,7 +30,7 @@
         <div class="container ">
             <nav class="navbar navbar-expand-sm navbar-light ">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#"><img src="images/logo.png " class="img-responsive" height="50px"
+                    <a class="navbar-brand" href="index.html"><img src="images/logo.png " class="img-responsive" height="50px"
                             alt="logo"></a>
                     <button class="navbar-toggler bg-yellow" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapsibleNavbar">
@@ -146,16 +146,11 @@
 
     <footer>
 
-    <div class="container-fluid p-0 mt-4">
 
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12052.131281648897!2d29.11198848150635!3d40.95885984320636!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa65cc0e193d07d07!2sClubsporium!5e0!3m2!1str!2s!4v1434631285445" width="100%" height="350"
-                frameborder="0" style="border:0" class="map"></iframe>
-
-        </div>
 
         <div class="container">
             <div class="row mt-4">
-                <div class="col-md-3 col-sm-12">
+                <div class="col-md-3 col-sm-12 mt-3">
 
                     <p class="h3 text-warning">BRANŞLAR</p>
                     <ul class="list-group list-group-flush ">
@@ -181,7 +176,7 @@
 
                 </div>
 
-                <div class="col-md-3 col-sm-12">
+                <div class="col-md-3 col-sm-12 mt-3">
 
                     <p class="h3 text-warning">DİĞER</p>
                     <ul class="list-group list-group-flush">
@@ -201,7 +196,7 @@
 
                 </div>
 
-                <div class="col-md-3 col-sm-12">
+                <div class="col-md-3 col-sm-12 mt-3">
 
                     <p class="h3 text-warning">JUST SPORTS BLOG</p>
                     <ul class="list-group list-group-flush">
@@ -213,7 +208,7 @@
 
                 </div>
 
-                <div class="col-md-3 col-sm-12">
+                <div class="col-md-3 col-sm-12 mt-3">
 
                     <p class="h3 text-warning">SOSYAL MEDYA</p>
                     <ul class="list-group list-group-flush">
