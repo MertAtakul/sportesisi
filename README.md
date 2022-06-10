@@ -6,6 +6,5 @@
 https://www.tutorialrepublic.com/php-tutorial/php-mysql-login-system.php
 https://www.tutorialspoint.com/php/php_mysql_login.htm
 =======
-name tagi post işlemi için kullanılıyor
-trim baştaki ve sondaki boşlukları kaldırıyor
+
 >>>>>>> Stashed changes
